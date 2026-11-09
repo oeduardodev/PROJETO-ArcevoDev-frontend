@@ -1,5 +1,12 @@
 import type { ContentType } from "./types";
 
+export const CONTENT_TYPES: ContentType[] = [
+  "historia",
+  "curiosidade",
+  "personalidade",
+  "tecnologia",
+];
+
 export const TYPE_LABELS: Record<ContentType, string> = {
   historia: "História",
   curiosidade: "Curiosidade",
