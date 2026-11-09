@@ -106,6 +106,100 @@ p {
   color: var(--muted);
 }
 
+.home-intro {
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.home-intro h1 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+}
+
+.home-intro p {
+  margin-top: 10px;
+  font-size: 1.05rem;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+  border-color: #cfcfc6;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 6%);
+}
+
+.article-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 20px;
+}
+
+.badge {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e7f1ee;
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badge-historia {
+  background: #e8eef8;
+  color: #2f4f7f;
+}
+
+.badge-curiosidade {
+  background: #fdf3e2;
+  color: #8a5a12;
+}
+
+.badge-personalidade {
+  background: #f3e9f7;
+  color: #6b3d7a;
+}
+
+.badge-tecnologia {
+  background: #e7f1ee;
+  color: #185546;
+}
+
+.article-card-title {
+  font-size: 1.2rem;
+}
+
+.article-card-summary {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.article-card-date {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.loading {
+  padding: 16px 0;
+}
+
 @media (max-width: 600px) {
   .page {
     padding-top: 28px;
