@@ -2,12 +2,28 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticle } from "@/lib/api";
 import { formatDate, TYPE_LABELS } from "@/lib/format";
+import type { Article } from "@/lib/types";
 
 type Params = Promise<{ slug: string }>;
 
 export default async function ArticlePage({ params }: { params: Params }) {
   const { slug } = await params;
-  const article = await getArticle(slug);
+
+  let article: Article | null;
+
+  try {
+    article = await getArticle(slug);
+  } catch {
+    return (
+      <div className="state state-error" role="alert">
+        <h1>Não foi possível carregar o conteúdo</h1>
+        <p>Verifique se a API está em execução e tente novamente.</p>
+        <Link href="/" className="button-link">
+          Voltar ao início
+        </Link>
+      </div>
+    );
+  }
 
   if (!article) {
     notFound();
