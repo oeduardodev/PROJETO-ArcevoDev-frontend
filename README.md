@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ArcevoDev — frontend
 
-## Getting Started
+Site público do ArcevoDev, construído com Next.js (App Router) e TypeScript. As
+páginas são renderizadas no servidor e consultam a API do NestJS.
 
-First, run the development server:
+## Requisitos
+
+- Node.js 20 ou superior
+- npm
+- Backend do ArcevoDev em execução
+
+## Instalação e execução
 
 ```bash
+npm install
+cp .env.local.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O site sobe em http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variável de ambiente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+API_BASE_URL=http://localhost:3001/api
+```
 
-## Learn More
+A variável é usada apenas no servidor, em `src/lib/api.ts`, e não é exposta ao
+navegador.
 
-To learn more about Next.js, take a look at the following resources:
+## Páginas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/` — apresentação, busca por texto, filtro por tipo e cards dos conteúdos.
+- `/conteudos/[slug]` — título, tipo, data, resumo, parágrafos e referências.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Estados tratados: lista vazia, API fora do ar e conteúdo inexistente (404).
 
-## Deploy on Vercel
+## Build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm run start
+```
